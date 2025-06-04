@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>biniyog.xyz - Empowering Entrepreneurs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="theme-color" content="#121212">
+  <link rel="icon" href="https://via.placeholder.com/512" type="image/png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.5;
+      background-color: #121212;
+      color: #ffffff;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      padding: 0.8rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-container h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ffd700;
+    }
+
+    .install-btn {
+      background-color: #ffd700;
+      color: #1a1a1a;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin-left: 1rem;
+      display: none;
+    }
+
+    .install-btn:hover {
+      background-color: #e6c200;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    /* Hero Section */
+    #home {
+      background: linear-gradient(135deg, #1a1a1a, #121212);
+      padding: 3rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid #333333;
+    }
+
+    #home h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #home p {
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto 1rem;
+      color: #cccccc;
+    }
+
+    .btn {
+      background-color: #ffd700;
+      color: #1a1a1a;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-size: 0.9rem;
+      min-height: 44px;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+    }
+
+    /* Hire Talent Section */
+    #hire-talent {
+      padding: 2rem 1rem;
+      background-color: #121212;
+      text-align: center;
+    }
+
+    #hire-talent h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #hire-talent p {
+      font-size: 0.9rem;
+      max-width: 600px;
+      margin: 0 auto 1rem;
+      color: #cccccc;
+    }
+
+    .category-scroll {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 0.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: #ffd700 #333333;
+    }
+
+    .category-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .category-scroll::-webkit-scrollbar-track {
+      background: #333333;
+    }
+
+    .category-scroll::-webkit-scrollbar-thumb {
+      background: #ffd700;
+      border-radius: 3px;
+    }
+
+    .category-card {
+      flex: 0 0 100px;
+      background-color: #1a1a1a;
+      padding: 0.75rem;
+      border-radius: 50%;
+      text-align: center;
+      border: 1px solid #333333;
+      transition: transform 0.3s;
+      opacity: 0;
+      transform: scale(0.8);
+      animation: fadeIn 0.5s forwards;
+      cursor: pointer;
+    }
+
+    .category-card:nth-child(2) { animation-delay: 0.2s; }
+    .category-card:nth-child(3) { animation-delay: 0.4s; }
+    .category-card:nth-child(4) { animation-delay: 0.6s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .category-card:hover {
+      transform: scale(1.1);
+    }
+
+    .category-card i {
+      font-size: 1.5rem;
+      color: #ffd700;
+      margin-bottom: 0.3rem;
+    }
+
+    .category-card h3 {
+      font-size: 0.7rem;
+      color: #ffffff;
+    }
+
+    /* Today's Offer Section */
+    #todays-offer {
+      padding: 2rem 1rem;
+      background-color: #121212;
+      text-align: center;
+    }
+
+    #todays-offer h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #todays-offer p {
+      font-size: 0.9rem;
+      max-width: 600px;
+      margin: 0 auto 1rem;
+      color: #cccccc;
+    }
+
+    .offer-scroll {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 0.5rem;
+      scrollbar-width: thin;
+      scrollbar-color: #ffd700 #333333;
+    }
+
+    .offer-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .offer-scroll::-webkit-scrollbar-track {
+      background: #333333;
+    }
+
+    .offer-scroll::-webkit-scrollbar-thumb {
+      background: #ffd700;
+      border-radius: 3px;
+    }
+
+    .offer-card {
+      flex: 0 0 250px;
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      border: 1px solid #333333;
+      transition: transform 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .offer-card:nth-child(2) { animation-delay: 0.2s; }
+    .offer-card:nth-child(3) { animation-delay: 0.4s; }
+
+    .offer-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .offer-card i {
+      font-size: 1.8rem;
+      color: #ffd700;
+      margin-bottom: 0.5rem;
+    }
+
+    .offer-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .offer-card p {
+      color: #cccccc;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .offer-card .price {
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .offer-card .action-btn {
+      background-color: #ffd700;
+      color: #1a1a1a;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.7rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .offer-card .action-btn:hover {
+      background-color: #e6c200;
+    }
+
+    /* Services Section */
+    #services {
+      padding: 2rem 1rem;
+      background-color: #121212;
+    }
+
+    #services h2 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .service-card {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+      text-align: center;
+      transition: transform 0.3s;
+      border: 1px solid #333333;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 0.5s forwards;
+    }
+
+    .service-card:nth-child(2) { animation-delay: 0.2s; }
+    .service-card:nth-child(3) { animation-delay: 0.4s; }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .service-card i {
+      font-size: 1.8rem;
+      color: #ffd700;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .service-card p {
+      color: #cccccc;
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card .price {
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-card .action-btn {
+      background-color: #ffd700;
+      color: #1a1a1a;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.7rem;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-card .action-btn:hover {
+      background-color: #e6c200;
+    }
+
+    /* Premium Section */
+    #premium {
+      background-color: #121212;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-top: 1px solid #333333;
+      border-bottom: 1px solid #333333;
+    }
+
+    #premium h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    #premium p {
+      font-size: 0.9rem;
+      max-width: 600px;
+      margin: 0 auto 0.5rem;
+      color: #cccccc;
+    }
+
+    #premium ul {
+      list-style: none;
+      margin-bottom: 1rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+
+    #premium ul li {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      position: relative;
+      padding-left: 1.2rem;
+      color: #cccccc;
+    }
+
+    #premium ul li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: #ffd700;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      padding: 1rem;
+      text-align: center;
+      border-top: 1px solid #333333;
+    }
+
+    footer p {
+      margin-bottom: 0.5rem;
+      color: #cccccc;
+      font-size: 0.8rem;
+    }
+
+    .social-links a {
+      color: #ffffff;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffd700;
+    }
+
+    /* Modals */
+    .order-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.1);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .order-modal-content {
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 90%;
+      width: 300px;
+      text-align: center;
+      border: 1px solid #333333;
+      position: relative;
+    }
+
+    .order-modal-content h3 {
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+      font-size: 1.2rem;
+    }
+
+    .order-modal-content input,
+    .order-modal-content textarea,
+    .order-modal-content select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid #333333;
+      border-radius: 5px;
+      background-color: #2a2a2a;
+      color: #ffffff;
+      font-size: 0.9rem;
+    }
+
+    .order-modal-content textarea {
+      min-height: 80px;
+    }
+
+    .order-modal-content .btn {
+      background-color: #ffd700;
+      color: #1a1a1a;
+      min-height: 44px;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    /* Chat Button */
+    .chat-btn {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background-color: #ffd700;
+      color: #1a1a1a;
+      padding: 0.8rem;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .chat-btn i {
+      font-size: 1.2rem;
+    }
+
+    .chat-btn:hover {
+      background-color: #e6c200;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .nav-container {
+        justify-content: space-between;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a;
+        padding: 0.5rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        margin: 0.3rem 0;
+        font-size: 1rem;
+      }
+
+      .install-btn {
+        margin: 0.3rem 0;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      #home h2 {
+        font-size: 1.5rem;
+      }
+
+      #home p {
+        font-size: 0.9rem;
+      }
+
+      #hire-talent h2,
+      #todays-offer h2,
+      #services h2,
+      #premium h2 {
+        font-size: 1.3rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+      }
+
+      .service-card,
+      .offer-card {
+        padding: 0.8rem;
+        flex: 0 0 200px;
+      }
+
+      .service-card i,
+      .offer-card i {
+        font-size: 1.5rem;
+      }
+
+      .service-card h3,
+      .offer-card h3 {
+        font-size: 1rem;
+      }
+
+      .service-card p,
+      .offer-card p {
+        font-size: 0.7rem;
+      }
+
+      .service-card .price,
+      .offer-card .price {
+        font-size: 0.8rem;
+      }
+
+      .category-card {
+        flex: 0 0 80px;
+        padding: 0.5rem;
+      }
+
+      .category-card i {
+        font-size: 1.2rem;
+      }
+
+      .category-card h3 {
+        font-size: 0.6rem;
+      }
+
+      .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+      }
+
+      .service-card .action-btn,
+      .offer-card .action-btn {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.6rem;
+      }
+
+      .install-btn {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="nav-container">
+      <h1>biniyog.xyz</h1>
+      <div class="hamburger" onclick="toggleMenu()">
+        <i class="fa fa-bars"></i>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#hire-talent">Hire Talent</a>
+        <a href="#todays-offer">Today's Offer</a>
+        <a href="#services">Services</a>
+        <a href="#premium">Premium</a>
+        <a href="https://worker.biniyog.xyz" target="_blank">Join as Worker</a>
+        <div class="install-btn" id="installBtn">Install</div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home">
+    <h2>Empowering Entrepreneurs</h2>
+    <p>Connect with investors, hire skilled professionals, and access premium business services.</p>
+    <a href="#todays-offer" class="btn">Explore Offers</a>
+  </section>
+
+  <!-- Hire Talent Section -->
+  <section id="hire-talent">
+    <h2>Hire Talent</h2>
+    <p>Find expert professionals to elevate your business.</p>
+    <div class="category-scroll">
+      <div class="category-card" onclick="openTalentModal('Video Editor')">
+        <i class="fa fa-video"></i>
+        <h3>Video Editor</h3>
+      </div>
+      <div class="category-card" onclick="openTalentModal('Graphic Designer')">
+        <i class="fa fa-paint-brush"></i>
+        <h3>Graphic Designer</h3>
+      </div>
+      <div class="category-card" onclick="openTalentModal('Web Developer')">
+        <i class="fa fa-code"></i>
+        <h3>Web Developer</h3>
+      </div>
+      <div class="category-card" onclick="openTalentModal('Digital Marketer')">
+        <i class="fa fa-bullhorn"></i>
+        <h3>Digital Marketer</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Today's Offer Section -->
+  <section id="todays-offer">
+    <h2>Today's Offer</h2>
+    <p>Grab our exclusive deals today!</p>
+    <div class="offer-scroll">
+      <div class="offer-card">
+        <i class="fa fa-paint-brush"></i>
+        <h3>Canva Pro Account</h3>
+        <p>Professional designs with Canva Pro.</p>
+        <div class="price">৳5</div>
+        <a href="#" class="action-btn" onclick="openOrderModal('Canva Pro Account', 5)">Order Now</a>
+      </div>
+      <div class="offer-card">
+        <i class="fa fa-video"></i>
+        <h3>Video Editing</h3>
+        <p>Professional video editing at ৳100/min.</p>
+        <div class="price">৳100/min</div>
+        <a href="#" class="action-btn" onclick="openOrderModal('Video Editing', 100, true)">Order Now</a>
+      </div>
+      <div class="offer-card">
+        <i class="fa fa-shopping-cart"></i>
+        <h3>E-commerce Website</h3>
+        <p>Custom e-commerce website for your business.</p>
+        <div class="price">৳35</div>
+        <a href="#" class="action-btn" onclick="openOrderModal('E-commerce Website', 35)">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fa fa-money-bill"></i>
+        <h3>Business Loan</h3>
+        <p>Easy-term loans for growth.</p>
+        <div class="price">Premium</div>
+        <a href="#" class="action-btn" onclick="openModal('premiumModal')">Become Premium</a>
+      </div>
+      <div class="service-card">
+        <i class="fa fa-bullhorn"></i>
+        <h3>Advertising</h3>
+        <p>Promote with our Visa card.</p>
+        <div class="price">Premium</div>
+        <a href="#" class="action-btn" onclick="openModal('premiumModal')">Become Premium</a>
+      </div>
+      <div class="service-card">
+        <i class="fa fa-hand-holding-usd"></i>
+        <h3>Investment Opportunities</h3>
+        <p>Connect with investors.</p>
+        <div class="price">Premium</div>
+        <a href="#" class="action-btn" onclick="openModal('premiumModal')">Become Premium</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Premium Section -->
+  <section id="premium">
+    <h2>Premium Membership</h2>
+    <p>Unlock exclusive benefits and get up to ৳10,00,000 in investment collection:</p>
+    <ul>
+      <li>Connect with investors</li>
+      <li>Access business loans</li>
+      <li>Advertise using our Visa card</li>
+      <li>Up to ৳10,00,000 investment collection</li>
+    </ul>
+    <a href="#" class="btn" onclick="openModal('premiumModal')">Become a Premium Member</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Join our community to stay updated and grow your business!</p>
+    <div class="social-links">
+      <a href="https://facebook.com/groups/biniyog" target="_blank"><i class="fab fa-facebook-f"></i> Facebook Group</a>
+      <a href="https://youtube.com/@biniyog" target="_blank"><i class="fab fa-youtube"></i> YouTube Channel</a>
+      <a href="https://facebook.com/biniyog" target="_blank"><i class="fab fa-facebook"></i> Facebook Page</a>
+    </div>
+    <p>Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9bf2f5fdf4dbf9f2f5f2e2f4fcb5e3e2e1">[email&#160;protected]</a> | Phone: +8801989905386</p>
+  </footer>
+
+  <!-- Chat Button -->
+  <div class="chat-btn" onclick="window.open('https://wa.me/+8801989905386', '_blank')">
+    <i class="fa fa-comments"></i>
+  </div>
+
+  <!-- Premium Modal -->
+  <div class="order-modal" id="premiumModal">
+    <div class="order-modal-content">
+      <span class="close-btn" onclick="closeModal('premiumModal')">×</span>
+      <h3>Become a Premium Member</h3>
+      <input type="text" placeholder="Your Name" id="premiumName" required>
+      <input type="email" placeholder="Your Email" id="premiumEmail" required>
+      <input type="text" placeholder="Payment Method (e.g., Visa)" id="premiumPayment" required>
+      <button class="btn" onclick="submitPremium()">Subscribe</button>
+    </div>
+  </div>
+
+  <!-- Order Modal -->
+  <div class="order-modal" id="orderModal">
+    <div class="order-modal-content">
+      <span class="close-btn" onclick="closeModal('orderModal')">×</span>
+      <h3 id="orderTitle">Order Form</h3>
+      <input type="text" placeholder="Your Name" id="orderName" required>
+      <input type="email" placeholder="Your Email" id="orderEmail" required>
+      <input type="tel" placeholder="Your Mobile Number" id="orderMobile" required>
+      <input type="text" placeholder="Payment Method (e.g., Bkash)" id="paymentMethod" required>
+      <input type="number" placeholder="Video Duration (minutes)" id="videoDuration" style="display: none;" min="1">
+      <button class="btn" onclick="submitOrder()">Submit Order</button>
+    </div>
+  </div>
+
+  <!-- Talent Request Modal -->
+  <div class="order-modal" id="talentModal">
+    <div class="order-modal-content">
+      <span class="close-btn" onclick="closeModal('talentModal')">×</span>
+      <h3 id="talentTitle">Hire Talent</h3>
+      <input type="text" placeholder="Your Name" id="talentName" required>
+      <input type="email" placeholder="Your Email" id="talentEmail" required>
+      <textarea placeholder="Describe Your Requirements" id="talentRequirements" required></textarea>
+      <button class="btn" onclick="submitTalentRequest()">Submit Request</button>
+    </div>
+  </div>
+
+  <!-- Manifest JSON -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/json" id="manifest">
+    {
+      "name": "biniyog.xyz",
+      "short_name": "Biniyog",
+      "description": "Empowering Entrepreneurs with Premium Services",
+      "start_url": "/",
+      "display": "standalone",
+      "background_color": "#121212",
+      "theme_color": "#ffd700",
+      "icons": [
+        {
+          "src": "https://via.placeholder.com/512",
+          "sizes": "512x512",
+          "type": "image/png"
+        }
+      ]
+    }
+  </script>
+
+  <!-- Service Worker -->
+  <script id="service-worker">
+    self.addEventListener('install', (event) => {
+      event.waitUntil(
+        caches.open('biniyog-cache-v1').then((cache) => {
+          return cache.addAll([
+            '/',
+            '/index.html',
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
+          ]);
+        })
+      );
+    });
+
+    self.addEventListener('fetch', (event) => {
+      event.respondWith(
+        caches.match(event.request).then((response) => {
+          return response || fetch(event.request);
+        })
+      );
+    });
+  </script>
+
+  <script>
+    // Inject Manifest
+    const manifestData = document.getElementById('manifest').textContent;
+    const manifestBlob = new Blob([manifestData], { type: 'application/json' });
+    const manifestURL = URL.createObjectURL(manifestBlob);
+    const link = document.createElement('link');
+    link.rel = 'manifest';
+    link.href = manifestURL;
+    document.head.appendChild(link);
+
+    // Register Service Worker
+    const swCode = document.getElementById('service-worker').textContent;
+    const swBlob = new Blob([swCode], { type: 'application/javascript' });
+    const swURL = URL.createObjectURL(swBlob);
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register(swURL)
+          .then(reg => console.log('Service Worker registered'))
+          .catch(err => console.log('Service Worker registration failed:', err));
+      });
+    }
+
+    // PWA Install Prompt
+    let deferredPrompt;
+    const installBtn = document.getElementById('installBtn');
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = 'block';
+    });
+
+    installBtn.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+        installBtn.style.display = 'none';
+      }
+    });
+
+    // Menu Toggle
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    // Modal Functions
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+
+    // Order Modal Functions
+    let currentOrder = '';
+    let currentPrice = 0;
+    let isVideoEditing = false;
+
+    function openOrderModal(title, price, videoEditing = false) {
+      currentOrder = title;
+      currentPrice = price;
+      isVideoEditing = videoEditing;
+      document.getElementById('orderTitle').textContent = `Order ${title}`;
+      document.getElementById('videoDuration').style.display = videoEditing ? 'block' : 'none';
+      openModal('orderModal');
+    }
+
+    function submitOrder() {
+      const name = document.getElementById('orderName').value;
+      const email = document.getElementById('orderEmail').value;
+      const mobile = document.getElementById('orderMobile').value;
+      const paymentMethod = document.getElementById('paymentMethod').value;
+      const duration = isVideoEditing ? document.getElementById('videoDuration').value : 1;
+
+      if (!name || !email || !mobile || !paymentMethod || (isVideoEditing && !duration)) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please provide a valid email address.');
+        return;
+      }
+
+      if (!/^\+?\d{10,15}$/.test(mobile)) {
+        alert('Please provide a valid mobile number.');
+        return;
+      }
+
+      if (isVideoEditing && duration < 1) {
+        alert('Please enter a valid video duration.');
+        return;
+      }
+
+      const totalPrice = isVideoEditing ? currentPrice * duration : currentPrice;
+      const message = `New Order: ${currentOrder}\nName: ${name}\nEmail: ${email}\nMobile: ${mobile}\nPayment Method: ${paymentMethod}\n${isVideoEditing ? `Duration: ${duration} minutes\n` : ''}Total: ৳${totalPrice}`;
+      const whatsappUrl = `https://wa.me/+8801989905386?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      closeModal('orderModal');
+    }
+
+    // Premium Submission
+    function submitPremium() {
+      const name = document.getElementById('premiumName').value;
+      const email = document.getElementById('premiumEmail').value;
+      const paymentMethod = document.getElementById('premiumPayment').value;
+
+      if (!name || !email || !paymentMethod) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please provide a valid email address.');
+        return;
+      }
+
+      const message = `Premium Membership Request\nName: ${name}\nEmail: ${email}\nPayment Method: ${paymentMethod}`;
+      const whatsappUrl = `https://wa.me/+8801989905386?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      closeModal('premiumModal');
+    }
+
+    // Talent Request Modal
+    let currentTalent = '';
+
+    function openTalentModal(talent) {
+      currentTalent = talent;
+      document.getElementById('talentTitle').textContent = `Hire ${talent}`;
+      openModal('talentModal');
+    }
+
+    function submitTalentRequest() {
+      const name = document.getElementById('talentName').value;
+      const email = document.getElementById('talentEmail').value;
+      const requirements = document.getElementById('talentRequirements').value;
+
+      if (!name || !email || !requirements) {
+        alert('Please fill in all fields.');
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please provide a valid email address.');
+        return;
+      }
+
+      const message = `Talent Request\nType: ${currentTalent}\nName: ${name}\nEmail: ${email}\nRequirements: ${requirements}`;
+      const whatsappUrl = `https://wa.me/+8801989905386?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      closeModal('talentModal');
+    }
+  </script>
+</body>
+</html>
